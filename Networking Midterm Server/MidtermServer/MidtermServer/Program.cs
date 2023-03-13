@@ -19,8 +19,8 @@ namespace MidtermServer
 
         IPHostEntry hostInfo = Dns.GetHostEntry(Dns.GetHostName());
 
-            IPAddress ip = hostInfo.AddressList[1];
-            //IPAddress ip = IPAddress.Parse("127.0.0.1");
+            //IPAddress ip = hostInfo.AddressList[1];
+            IPAddress ip = IPAddress.Parse("127.0.0.1");
 
             Console.WriteLine("Server name:{0} IP: {1}", hostInfo.HostName, ip);
 
@@ -67,10 +67,12 @@ namespace MidtermServer
             Buffer.BlockCopy(buffer, 0, pos, 0, rec);
 
             //socket.BeginSend(buffer, 0, buffer.Length, 0, new AsyncCallback(SendCallback), socket);
-            Console.WriteLine("Recieved X:" + pos[0] + " Y:" + pos[1] + " Z:" + pos[2]);
-
+            // if the identifyer at pos position 4 is = then its client 1 and if its 1 then its client 2
+            if(pos[3] == 0)
+            {
+                Console.WriteLine("Recieved From Client 1 X:" + pos[0] + " Y:" + pos[1] + " Z:" + pos[2]);
+            }
             socket.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(RecieveCallback), socket);
-
         }
 
         public static int Main(String[] args)

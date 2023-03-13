@@ -16,6 +16,8 @@ public class MidtermClientUDP : MonoBehaviour
 
     private static byte[] bpos;
     private static float[] pos;
+    // Identifyer should be 0 in client 1 & 1 in Client 2
+    private static float identifyer = 0;
 
     private Vector3 cubeLastPos;
 
@@ -23,8 +25,8 @@ public class MidtermClientUDP : MonoBehaviour
     {
         try
         {
-            IPAddress ip = IPAddress.Parse("192.168.2.178");
-            //IPAddress ip = IPAddress.Parse("127.0.0.1");
+            //IPAddress ip = IPAddress.Parse("192.168.2.178");
+            IPAddress ip = IPAddress.Parse("127.0.0.1");
             remoteEP = new IPEndPoint(ip, 8889);
 
             clientSoc = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
@@ -77,7 +79,7 @@ public class MidtermClientUDP : MonoBehaviour
     }
     public void SendCubePos()
     {
-        pos = new float[] { gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z };
+        pos = new float[] { gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z, identifyer};
         bpos = new byte[pos.Length * 4];
         // source with offset, destination with offset and length
         Buffer.BlockCopy(pos, 0, bpos, 0, bpos.Length);
