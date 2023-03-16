@@ -6,3 +6,11 @@ C:\University\GIthub\NetworkingMidterm\Pratical-Midterm\Networking Midterm Serve
 C:\University\GIthub\NetworkingMidterm\Pratical-Midterm\Networking Midterm Server\MidtermServer\MidtermServer\obj\Debug\MidtermServer.csproj.CoreCompileInputs.cache
 C:\University\GIthub\NetworkingMidterm\Pratical-Midterm\Networking Midterm Server\MidtermServer\MidtermServer\obj\Debug\MidtermServer.exe
 C:\University\GIthub\NetworkingMidterm\Pratical-Midterm\Networking Midterm Server\MidtermServer\MidtermServer\obj\Debug\MidtermServer.pdb
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Server\MidtermServer\MidtermServer\bin\Debug\MidtermServer.exe.config
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Server\MidtermServer\MidtermServer\bin\Debug\MidtermServer.exe
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Server\MidtermServer\MidtermServer\bin\Debug\MidtermServer.pdb
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Server\MidtermServer\MidtermServer\obj\Debug\MidtermServer.csproj.AssemblyReference.cache
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Server\MidtermServer\MidtermServer\obj\Debug\MidtermServer.csproj.SuggestedBindingRedirects.cache
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Server\MidtermServer\MidtermServer\obj\Debug\MidtermServer.csproj.CoreCompileInputs.cache
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Server\MidtermServer\MidtermServer\obj\Debug\MidtermServer.exe
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Server\MidtermServer\MidtermServer\obj\Debug\MidtermServer.pdb

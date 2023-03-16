@@ -28,26 +28,23 @@ namespace MidtermServer
 
             Socket server = new Socket(ip.AddressFamily, SocketType.Dgram, ProtocolType.Udp);
             server.Blocking = false;
+            server.Bind(localEP);
 
             //server.BeginReceive(new AsyncCallback(ReceiveCallback), null);
-
             // 0 is for any avaliable  port
             //EndPoint remoteClient = new IPEndPoint(IPAddress.Any, 8889);
 
             try
             {
-                server.Bind(localEP);
-
                 Console.WriteLine("Waiting for data...");
-                // Currently just recieves and prints data
+                // this one works rn
                 server.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(RecieveCallback), server);
-                while (true)
-                {
+                //while (true)
+                //{
                     //int recv = server.ReceiveFrom(buffer, ref remoteClient);
                     //int recv = server.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(RecieveCallback), server)
                     //server.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(RecieveCallback), server);
-
-                }
+                //}
 
             }
             catch (Exception e)
@@ -72,7 +69,14 @@ namespace MidtermServer
             {
                 Console.WriteLine("Recieved From Client 1 X:" + pos[0] + " Y:" + pos[1] + " Z:" + pos[2]);
             }
+            socket.BeginSend(buffer, 0, buffer.Length, 0, new AsyncCallback(SendCallback), socket);
             socket.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(RecieveCallback), socket);
+        }
+
+        private static void SendCallback(IAsyncResult result)
+        {
+            Socket socket = (Socket)result.AsyncState;
+            socket.EndSend(result);
         }
 
         public static int Main(String[] args)

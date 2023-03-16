@@ -17,7 +17,6 @@ namespace Server
         private static byte[] sendBuffer = new byte[512];
         private static Socket server;
         private static string sendMsg = "";
-
         // Client list 
         private static List<Socket> clientSockets = new List<Socket>();
 
@@ -25,7 +24,7 @@ namespace Server
         {
             Console.WriteLine("Starting Server...");
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            server.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 11111));
+            server.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8888));
 
             server.Listen(10);
 
