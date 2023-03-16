@@ -13,24 +13,24 @@ public class ClientTCP : MonoBehaviour
     private static Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
     private static byte[] buffer = new byte[512];
     private static byte[] sendBuffer = new byte[512];
-    string userIPinput;
     // Start is called before the first frame update
-    void Start()
+
+
+    public static void startClient(string IP)
     {
         // need a server IP variable that is modifed by the input field and it goes here instead of "127.0.0.1"
         //                      (IPAddress = userIPInput), 8888)
-        client.Connect(IPAddress.Parse("127.0.0.1"), 8888);
+        client.Connect(IPAddress.Parse(IP), 8888);
         Debug.Log("Connected to the server!");
 
         //client.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveCallback), client);
 
         // the thread will execute tFunc()
-        Thread t = new Thread(dumbassfunction);
+        Thread t = new Thread(new ThreadStart(dumbassfunction));
         t.Name = "Recieve Thread";
         Console.WriteLine(t.Name + " has been created!");
         t.Start();
 
-        //Send();
     }
 
     // Update is called once per frame
@@ -39,10 +39,11 @@ public class ClientTCP : MonoBehaviour
         Send();
     }
 
-     private void dumbassfunction()
+     private static void dumbassfunction()
      {
         client.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveCallback), client);
      }
+
 
     private static void ReceiveCallback(IAsyncResult result)
     {
