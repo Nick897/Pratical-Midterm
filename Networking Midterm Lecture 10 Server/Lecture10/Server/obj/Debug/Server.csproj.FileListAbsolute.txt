@@ -1,0 +1,8 @@
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\bin\Debug\Server.exe.config
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\bin\Debug\Server.exe
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\bin\Debug\Server.pdb
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\obj\Debug\Server.csproj.SuggestedBindingRedirects.cache
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\obj\Debug\Server.exe
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\obj\Debug\Server.pdb
