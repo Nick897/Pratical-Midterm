@@ -13,12 +13,10 @@ public class ClientTCP : MonoBehaviour
     private static Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
     private static byte[] buffer = new byte[512];
     private static byte[] sendBuffer = new byte[512];
-    string userIPinput;
     // Start is called before the first frame update
     void Start()
     {
         // need a server IP variable that is modifed by the input field and it goes here instead of "127.0.0.1"
-        //                      (IPAddress = userIPInput), 8888)
         client.Connect(IPAddress.Parse("127.0.0.1"), 8888);
         Debug.Log("Connected to the server!");
 
@@ -70,8 +68,10 @@ public class ClientTCP : MonoBehaviour
         client.Send(sendBuffer);
 
             //pretend interval
-        Thread.Sleep(100);
+        Thread.Sleep(1000);
         //}
     }
+
+
 
 }

@@ -67,6 +67,27 @@ public class MidtermClientUDP : MonoBehaviour
         Buffer.BlockCopy(pos, 0, bpos, 0, bpos.Length);
 
         clientSoc.SendTo(bpos, remoteEP);
+
+        // sending strings
+        //outBuffer = Encoding.ASCII.GetBytes(myCube.transform.position.ToString());
+        //clientSoc.SendTo(outBuffer, remoteEP);
     }
+/*
+    //Not needed rn
+    private static void RecieveCallback(IAsyncResult results)
+    {
+        Socket socket = (Socket)results.AsyncState;
+        int rec = socket.EndReceive(results);
+
+        //Lecture 06
+        pos = new float[rec / 4];
+        // copy buffer to pos
+        Buffer.BlockCopy(buffer, 0, pos, 0, rec);
+        Console.WriteLine("Client Recieved X:" + pos[0] + " Client Y:" + pos[1] + " Client Z:" + pos[2]);
+
+        // creates a loop by calling the function again
+        socket.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(RecieveCallback), socket);
+    }
+*/
     
 }
