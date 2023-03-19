@@ -14,11 +14,16 @@ namespace Server
     {
 
         private static byte[] buffer = new byte[512];
+        private static byte[] udpBuffer = new byte[512];
         private static byte[] sendBuffer = new byte[512];
         private static Socket server;
         private static Socket serverUDP;
+        private static IPEndPoint remoteEP;
+        private static IPAddress udpIP;
         private static string sendMsg = "";
+        public static byte[] bpos = new byte[512];
         public static float[] pos;
+        public static bool sendMessages = false;
 
         // Client list 
         private static List<Socket> clientSockets = new List<Socket>();
@@ -35,7 +40,9 @@ namespace Server
             //UDP Socket
             serverUDP = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             serverUDP.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8889));
+            udpIP = IPAddress.Parse("127.0.0.1");
             //clientSockets.Add(serverUDP);
+            remoteEP = new IPEndPoint(udpIP, 8889);
 
             //Thread for starting Aysnc UDP Receive Callback
             Thread udpReceiveThread = new Thread(new ThreadStart(dumbassfunction2));
@@ -52,7 +59,7 @@ namespace Server
         //function that literally just calls our UDP receive. Its called by a Thread: udpReceiveThread
         private static void dumbassfunction2()
         {
-            serverUDP.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveUDPCallback), serverUDP);
+            serverUDP.BeginReceive(udpBuffer, 0, udpBuffer.Length, 0, new AsyncCallback(ReceiveUDPCallback), serverUDP);
         }
         //TCP Accept Callback Async Function
         private static void AcceptCallback(IAsyncResult result)
@@ -77,6 +84,7 @@ namespace Server
 
             //// Here is where you protect the resource (buffer)
             sendMsg += " " + msg;
+            sendMessages = true;
 
             socket.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveCallback), socket);
         }
@@ -89,12 +97,25 @@ namespace Server
             int rec = socket.EndReceive(result);
 
             pos = new float[rec / 4];
-            Buffer.BlockCopy(buffer, 0, pos, 0, rec);
+            Buffer.BlockCopy(udpBuffer, 0, pos, 0, rec);
+            
 
             Console.WriteLine("Recieved From Client 1 X:" + pos[0] + " Y:" + pos[1] + " Z:" + pos[2]);
 
-            socket.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveUDPCallback), socket);
+            //SendUDPPos();
+
+            socket.BeginReceive(udpBuffer, 0, udpBuffer.Length, 0, new AsyncCallback(ReceiveUDPCallback), socket);
         }
+
+        // UDP Send Positions
+        private static void SendUDPPos()
+        {
+            //bpos = new byte[pos.Length * 4];
+            //Buffer.BlockCopy(pos, 0, bpos, 0, bpos.Length);
+
+            serverUDP.SendTo(udpBuffer, remoteEP);
+        }
+
         //TCP SendCallback Async Function
         private static void SendCallback(IAsyncResult result)
         {
@@ -107,16 +128,20 @@ namespace Server
         {
             while(true)
             {
-                sendBuffer = Encoding.ASCII.GetBytes(sendMsg);
-
-                foreach (var socket in clientSockets)
+                if (sendMessages == true)
                 {
-                    Console.WriteLine("Sent to: " + socket.RemoteEndPoint.ToString());
+                    sendBuffer = Encoding.ASCII.GetBytes(sendMsg);
 
-                    socket.BeginSend(sendBuffer,0,sendBuffer.Length, 0, new AsyncCallback(SendCallback), socket);
+                    foreach (var socket in clientSockets)
+                    {
+                        Console.WriteLine("Sent to: " + socket.RemoteEndPoint.ToString());
+
+                        socket.BeginSend(sendBuffer, 0, sendBuffer.Length, 0, new AsyncCallback(SendCallback), socket);
+                    }
+                    sendMsg = "";
+                    sendMessages = false;
+                    Thread.Sleep(100);
                 }
-                sendMsg = "";
-                Thread.Sleep(100);
             }
         }
     }

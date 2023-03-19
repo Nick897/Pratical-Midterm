@@ -61,18 +61,21 @@ public class ClientTCP : MonoBehaviour
 
     private static void Send()
     {
-        //int c = 0;
-        //while (true)
-        //{
-        //c++;
-        string sMsg = "Its Mohit's Birthday Party Tomorrow";
-        sendBuffer = Encoding.ASCII.GetBytes(sMsg);
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            //int c = 0;
+            //while (true)
+            //{
+            //c++;
+            string sMsg = "Its Mohit's Birthday Party Tomorrow";
+            sendBuffer = Encoding.ASCII.GetBytes(sMsg);
 
-        client.Send(sendBuffer);
+            client.Send(sendBuffer);
 
             //pretend interval
-        Thread.Sleep(100);
-        //}
+            Thread.Sleep(100);
+            //}
+        }
     }
 
 }

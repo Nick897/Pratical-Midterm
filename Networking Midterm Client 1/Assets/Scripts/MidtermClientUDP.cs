@@ -5,6 +5,7 @@ using System.Net;
 using UnityEngine;
 using System;
 using UnityEditor.PackageManager;
+using System.Threading;
 
 public class MidtermClientUDP : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class MidtermClientUDP : MonoBehaviour
     private static float identifyer = 0;
 
     private Vector3 cubeLastPos;
+    public GameObject remoteCube;
 
     public static void StartClient()
     {
@@ -33,12 +35,22 @@ public class MidtermClientUDP : MonoBehaviour
 
             // this is Async not needed rn
             //clientSoc.BeginReceive(bpos, 0, bpos.Length, 0, new AsyncCallback(RecieveCallback), clientSoc);
+
+            // the thread will execute tFunc()
+            Thread t = new Thread(new ThreadStart(dumbassfunction3UDP));
+            t.Name = "Recieve UDP Thread";
+            t.Start();
         }
         catch (Exception e)
         {
             Debug.Log("Exception: " + e.ToString());
         }
     }
+    private static void dumbassfunction3UDP()
+    {
+        clientSoc.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveUDPCallback), clientSoc);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,12 +73,25 @@ public class MidtermClientUDP : MonoBehaviour
     }
     public void SendCubePos()
     {
-        pos = new float[] { gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z, identifyer };
+        pos = new float[] { gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z};
         bpos = new byte[pos.Length * 4];
         // source with offset, destination with offset and length
         Buffer.BlockCopy(pos, 0, bpos, 0, bpos.Length);
 
         clientSoc.SendTo(bpos, remoteEP);
     }
-    
+    private static void ReceiveUDPCallback(IAsyncResult result)
+    {
+        //recieve a message
+        Socket socket = (Socket)result.AsyncState;
+        int rec = socket.EndReceive(result);
+
+        pos = new float[rec / 4];
+        Buffer.BlockCopy(buffer, 0, pos, 0, rec);
+
+        Debug.Log("Recieved From Server: X: " + pos[0] + " Y:" + pos[1] + " Z:" + pos[2]);
+
+        socket.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveUDPCallback), socket);
+    }
+
 }
