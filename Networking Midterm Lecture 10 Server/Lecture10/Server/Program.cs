@@ -134,7 +134,7 @@ namespace Server
 
                     foreach (var socket in clientSockets)
                     {
-                        Console.WriteLine("Sent to: " + socket.RemoteEndPoint.ToString());
+                        Console.WriteLine("Sent to: " + socket.RemoteEndPoint.ToString() + " \nMessage was " + sendMsg);
 
                         socket.BeginSend(sendBuffer, 0, sendBuffer.Length, 0, new AsyncCallback(SendCallback), socket);
                     }

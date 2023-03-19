@@ -6,3 +6,13 @@ C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder La
 C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\mutex\obj\Debug\mutex.csproj.CoreCompileInputs.cache
 C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\mutex\obj\Debug\mutex.exe
 C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\mutex\obj\Debug\mutex.pdb
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\mutex\bin\Debug\mutex.exe.config
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\mutex\bin\Debug\mutex.exe
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\mutex\bin\Debug\mutex.pdb
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\mutex\bin\Debug\System.Numerics.Vectors.dll
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\mutex\bin\Debug\System.Numerics.Vectors.xml
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\mutex\obj\Debug\mutex.csproj.AssemblyReference.cache
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\mutex\obj\Debug\mutex.csproj.CoreCompileInputs.cache
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\mutex\obj\Debug\mutex.csproj.CopyComplete
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\mutex\obj\Debug\mutex.exe
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\mutex\obj\Debug\mutex.pdb

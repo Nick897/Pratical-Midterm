@@ -13,6 +13,7 @@ public class ClientTCP : MonoBehaviour
     private static Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
     private static byte[] buffer = new byte[512];
     private static byte[] sendBuffer = new byte[512];
+    private static string input = "";
     // Start is called before the first frame update
 
 
@@ -39,10 +40,10 @@ public class ClientTCP : MonoBehaviour
         Send();
     }
 
-     private static void dumbassfunction()
-     {
+    private static void dumbassfunction()
+    {
         client.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveCallback), client);
-     }
+    }
 
 
     private static void ReceiveCallback(IAsyncResult result)
@@ -67,8 +68,7 @@ public class ClientTCP : MonoBehaviour
             //while (true)
             //{
             //c++;
-            string sMsg = "Its Mohit's Birthday Party Tomorrow";
-            sendBuffer = Encoding.ASCII.GetBytes(sMsg);
+            sendBuffer = Encoding.ASCII.GetBytes(input);
 
             client.Send(sendBuffer);
 
@@ -76,6 +76,11 @@ public class ClientTCP : MonoBehaviour
             Thread.Sleep(100);
             //}
         }
+    }
+
+    public static void ReadInput(string s)
+    {
+        input = s;
     }
 
 }
