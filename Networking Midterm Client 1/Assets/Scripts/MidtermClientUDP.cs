@@ -10,7 +10,7 @@ using System.Threading;
 public class MidtermClientUDP : MonoBehaviour
 {
     //public GameObject myCube;
-    private static byte[] buffer = new byte[4096];
+    private static byte[] buffer = new byte[512];
     // the server end point
     private static IPEndPoint remoteEP;
     private static Socket clientSoc;
@@ -23,6 +23,9 @@ public class MidtermClientUDP : MonoBehaviour
     private Vector3 cubeLastPos;
     public GameObject remoteCube;
 
+    private static Queue<float[]> RemotePosQueue = new Queue<float[]>();
+    private static float[] tempfloatArray;
+
     public static void StartClient()
     {
         try
@@ -32,9 +35,10 @@ public class MidtermClientUDP : MonoBehaviour
             remoteEP = new IPEndPoint(ip, 8889);
 
             clientSoc = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            //clientSoc = new Socket(ip.AddressFamily, SocketType.Dgram, ProtocolType.Udp);
 
             // this is Async not needed rn
-            //clientSoc.BeginReceive(bpos, 0, bpos.Length, 0, new AsyncCallback(RecieveCallback), clientSoc);
+            //clientSoc.BeginReceive(bpos, 0, bpos.Length, 0, new AsyncCallback(ReceiveUDPCallback), clientSoc);
 
             // the thread will execute tFunc()
             Thread t = new Thread(new ThreadStart(dumbassfunction3UDP));
@@ -48,14 +52,13 @@ public class MidtermClientUDP : MonoBehaviour
     }
     private static void dumbassfunction3UDP()
     {
+        Debug.Log("Dumbass Function Started");
         clientSoc.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveUDPCallback), clientSoc);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        // find the cube in the scene
-        //myCube = GameObject.Find("Cube");
         // set the cube's starting position to its last position
         cubeLastPos = gameObject.transform.position;
         StartClient();
@@ -70,6 +73,13 @@ public class MidtermClientUDP : MonoBehaviour
             SendCubePos();
         }
         cubeLastPos = gameObject.transform.position;
+
+        if(RemotePosQueue.Count > 0)
+        {
+            tempfloatArray = RemotePosQueue.Dequeue();
+            //remoteCube.transform.position.x = tempfloatArray[0];
+            remoteCube.transform.position = new Vector3(tempfloatArray[0], tempfloatArray[1], tempfloatArray[2]);
+        }
     }
     public void SendCubePos()
     {
@@ -90,8 +100,8 @@ public class MidtermClientUDP : MonoBehaviour
         Buffer.BlockCopy(buffer, 0, pos, 0, rec);
 
         Debug.Log("Recieved From Server: X: " + pos[0] + " Y:" + pos[1] + " Z:" + pos[2]);
+        RemotePosQueue.Enqueue(pos);
 
         socket.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveUDPCallback), socket);
     }
-
 }

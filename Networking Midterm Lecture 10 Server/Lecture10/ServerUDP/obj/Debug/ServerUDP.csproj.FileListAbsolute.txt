@@ -1,0 +1,8 @@
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\ServerUDP\bin\Debug\ServerUDP.exe.config
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\ServerUDP\bin\Debug\ServerUDP.exe
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\ServerUDP\bin\Debug\ServerUDP.pdb
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\ServerUDP\obj\Debug\ServerUDP.csproj.AssemblyReference.cache
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\ServerUDP\obj\Debug\ServerUDP.csproj.SuggestedBindingRedirects.cache
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\ServerUDP\obj\Debug\ServerUDP.csproj.CoreCompileInputs.cache
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\ServerUDP\obj\Debug\ServerUDP.exe
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\ServerUDP\obj\Debug\ServerUDP.pdb

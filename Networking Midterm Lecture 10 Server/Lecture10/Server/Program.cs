@@ -38,16 +38,16 @@ namespace Server
             server.BeginAccept(new AsyncCallback(AcceptCallback), null);
 
             //UDP Socket
-            serverUDP = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-            serverUDP.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8889));
-            udpIP = IPAddress.Parse("127.0.0.1");
-            //clientSockets.Add(serverUDP);
-            remoteEP = new IPEndPoint(udpIP, 8889);
+            //serverUDP = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            //serverUDP.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8889));
+            //udpIP = IPAddress.Parse("127.0.0.1");
+            ////clientSockets.Add(serverUDP);
+            //remoteEP = new IPEndPoint(udpIP, 8889);
 
-            //Thread for starting Aysnc UDP Receive Callback
-            Thread udpReceiveThread = new Thread(new ThreadStart(dumbassfunction2));
-            udpReceiveThread.Name = "UDPReceiveThread";
-            udpReceiveThread.Start();
+           ////Thread for starting Aysnc UDP Receive Callback
+           //Thread udpReceiveThread = new Thread(new ThreadStart(dumbassfunction2));
+           //udpReceiveThread.Name = "UDPReceiveThread";
+           //udpReceiveThread.Start();
 
             //Thread that Executes sending TCP messages to clients
             Thread sendThread = new Thread(new ThreadStart(SendLoop));
@@ -56,11 +56,11 @@ namespace Server
 
             Console.ReadLine();
         }
-        //function that literally just calls our UDP receive. Its called by a Thread: udpReceiveThread
-        private static void dumbassfunction2()
-        {
-            serverUDP.BeginReceive(udpBuffer, 0, udpBuffer.Length, 0, new AsyncCallback(ReceiveUDPCallback), serverUDP);
-        }
+       ////function that literally just calls our UDP receive. Its called by a Thread: udpReceiveThread
+       //private static void dumbassfunction2()
+       //{
+       //    serverUDP.BeginReceive(udpBuffer, 0, udpBuffer.Length, 0, new AsyncCallback(ReceiveUDPCallback), serverUDP);
+       //}
         //TCP Accept Callback Async Function
         private static void AcceptCallback(IAsyncResult result)
         {
@@ -89,32 +89,32 @@ namespace Server
             socket.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveCallback), socket);
         }
 
-        //UDP ReceiveCallback Async Function
-        private static void ReceiveUDPCallback(IAsyncResult result)
-        {
-            //recieve a message
-            Socket socket = (Socket)result.AsyncState;
-            int rec = socket.EndReceive(result);
+       ////UDP ReceiveCallback Async Function
+       //private static void ReceiveUDPCallback(IAsyncResult result)
+       //{
+       //    //recieve a message
+       //    Socket socket = (Socket)result.AsyncState;
+       //    int rec = socket.EndReceive(result);
+       //
+       //    pos = new float[rec / 4];
+       //    Buffer.BlockCopy(udpBuffer, 0, pos, 0, rec);
+       //    
+       //
+       //    Console.WriteLine("Recieved From Client 1 X:" + pos[0] + " Y:" + pos[1] + " Z:" + pos[2]);
+       //
+       //    //SendUDPPos();
+       //
+       //    socket.BeginReceive(udpBuffer, 0, udpBuffer.Length, 0, new AsyncCallback(ReceiveUDPCallback), socket);
+       //}
 
-            pos = new float[rec / 4];
-            Buffer.BlockCopy(udpBuffer, 0, pos, 0, rec);
-            
-
-            Console.WriteLine("Recieved From Client 1 X:" + pos[0] + " Y:" + pos[1] + " Z:" + pos[2]);
-
-            //SendUDPPos();
-
-            socket.BeginReceive(udpBuffer, 0, udpBuffer.Length, 0, new AsyncCallback(ReceiveUDPCallback), socket);
-        }
-
-        // UDP Send Positions
-        private static void SendUDPPos()
-        {
-            //bpos = new byte[pos.Length * 4];
-            //Buffer.BlockCopy(pos, 0, bpos, 0, bpos.Length);
-
-            serverUDP.SendTo(udpBuffer, remoteEP);
-        }
+       //// UDP Send Positions
+       //private static void SendUDPPos()
+       //{
+       //    //bpos = new byte[pos.Length * 4];
+       //    //Buffer.BlockCopy(pos, 0, bpos, 0, bpos.Length);
+       //
+       //    serverUDP.SendTo(udpBuffer, remoteEP);
+       //}
 
         //TCP SendCallback Async Function
         private static void SendCallback(IAsyncResult result)
