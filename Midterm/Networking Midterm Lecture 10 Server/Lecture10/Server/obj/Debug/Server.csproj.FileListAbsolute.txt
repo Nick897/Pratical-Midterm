@@ -1,0 +1,29 @@
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\bin\Debug\Server.exe.config
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\bin\Debug\Server.exe
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\bin\Debug\Server.pdb
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\obj\Debug\Server.csproj.SuggestedBindingRedirects.cache
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\obj\Debug\Server.exe
+C:\University\Y3 Winter Semester\Distributed Sytm. Networking\Projects Folder Laptop Version\Lecture10\Server\obj\Debug\Server.pdb
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\bin\Debug\Server.exe.config
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\bin\Debug\Server.exe
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\bin\Debug\Server.pdb
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\bin\Debug\System.Numerics.Vectors.dll
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\bin\Debug\System.Numerics.Vectors.xml
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\obj\Debug\Server.csproj.SuggestedBindingRedirects.cache
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\obj\Debug\Server.csproj.CopyComplete
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\obj\Debug\Server.exe
+D:\University_V2\Github Desktop\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\obj\Debug\Server.pdb
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\bin\Debug\Server.exe.config
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\bin\Debug\Server.exe
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\bin\Debug\Server.pdb
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\bin\Debug\System.Numerics.Vectors.dll
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\bin\Debug\System.Numerics.Vectors.xml
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\obj\Debug\Server.csproj.CopyComplete
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\obj\Debug\Server.exe
+F:\Unity\Repos\Pratical-Midterm\Networking Midterm Lecture 10 Server\Lecture10\Server\obj\Debug\Server.pdb
