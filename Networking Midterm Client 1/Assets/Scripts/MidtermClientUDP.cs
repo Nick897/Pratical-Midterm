@@ -4,7 +4,6 @@ using System.Net.Sockets;
 using System.Net;
 using UnityEngine;
 using System;
-using UnityEditor.PackageManager;
 using System.Threading;
 
 public class MidtermClientUDP : MonoBehaviour
