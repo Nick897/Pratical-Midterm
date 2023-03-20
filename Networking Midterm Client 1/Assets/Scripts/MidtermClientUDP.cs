@@ -18,7 +18,7 @@ public class MidtermClientUDP : MonoBehaviour
     private static byte[] bpos;
     private static float[] pos;
     // Identifyer should be 0 in client 1 & 1 in Client 2
-    private static float identifyer = 0;
+    private static float identifier = 0;
 
     private Vector3 cubeLastPos;
     public GameObject remoteCube;
@@ -83,7 +83,7 @@ public class MidtermClientUDP : MonoBehaviour
     }
     public void SendCubePos()
     {
-        pos = new float[] { gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z};
+        pos = new float[] { gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z, identifier};
         bpos = new byte[pos.Length * 4];
         // source with offset, destination with offset and length
         Buffer.BlockCopy(pos, 0, bpos, 0, bpos.Length);
