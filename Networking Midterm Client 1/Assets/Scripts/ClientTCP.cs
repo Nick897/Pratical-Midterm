@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Net;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using UnityEditor.PackageManager;
 using System.Text;
@@ -14,6 +15,11 @@ public class ClientTCP : MonoBehaviour
     private static byte[] buffer = new byte[512];
     private static byte[] sendBuffer = new byte[512];
     private static string input = "";
+
+    private string Chatinput;
+    public GameObject inputField;
+    public GameObject myText;
+    private static string msg;
     // Start is called before the first frame update
 
 
@@ -27,7 +33,7 @@ public class ClientTCP : MonoBehaviour
         //client.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveCallback), client);
 
         // the thread will execute tFunc()
-        Thread t = new Thread(new ThreadStart(dumbassfunction));
+        Thread t = new Thread(new ThreadStart(PassOverFunction));
         t.Name = "Recieve Thread";
         Console.WriteLine(t.Name + " has been created!");
         t.Start();
@@ -38,9 +44,10 @@ public class ClientTCP : MonoBehaviour
     void Update()
     {
         Send();
+        StoreInput();
     }
 
-    private static void dumbassfunction()
+    private static void PassOverFunction()
     {
         client.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveCallback), client);
     }
@@ -54,8 +61,9 @@ public class ClientTCP : MonoBehaviour
         byte[] data = new byte[rec];
         Array.Copy(buffer, data, rec);
 
-        string msg = Encoding.ASCII.GetString(data);
+        msg = Encoding.ASCII.GetString(data);
         Debug.Log("Received: " + msg);
+       // StoreInput();
 
         socket.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveCallback), socket);
     }
@@ -81,6 +89,12 @@ public class ClientTCP : MonoBehaviour
     public static void ReadInput(string s)
     {
         input = s;
+    }
+
+    public void StoreInput()
+    {
+        //Chatinput = inputField.GetComponent<Text>().text;
+        myText.GetComponent<Text>().text = "Received:" + msg;
     }
 
 }
