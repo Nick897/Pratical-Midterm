@@ -52,7 +52,6 @@ public class MidtermClientUDP : MonoBehaviour
     }
     private static void PassOverFunction3UDP()
     {
-        Debug.Log("Dumbass Function Started");
         clientSoc.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveUDPCallback), clientSoc);
     }
 

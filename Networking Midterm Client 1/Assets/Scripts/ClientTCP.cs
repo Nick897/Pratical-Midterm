@@ -62,6 +62,12 @@ public class ClientTCP : MonoBehaviour
         Array.Copy(buffer, data, rec);
 
         msg = Encoding.ASCII.GetString(data);
+
+        if(msg == null)
+        {
+            msg = "Client 2 Has Disconnected";
+        }
+
         Debug.Log("Received: " + msg);
        // StoreInput();
 

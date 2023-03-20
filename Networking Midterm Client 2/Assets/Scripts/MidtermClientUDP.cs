@@ -41,7 +41,7 @@ public class MidtermClientUDP : MonoBehaviour
             //clientSoc.BeginReceive(bpos, 0, bpos.Length, 0, new AsyncCallback(ReceiveUDPCallback), clientSoc);
 
             // the thread will execute tFunc()
-            Thread t = new Thread(new ThreadStart(dumbassfunction3UDP));
+            Thread t = new Thread(new ThreadStart(PassOverFunction3UDP));
             t.Name = "Recieve UDP Thread";
             t.Start();
         }
@@ -50,9 +50,8 @@ public class MidtermClientUDP : MonoBehaviour
             Debug.Log("Exception: " + e.ToString());
         }
     }
-    private static void dumbassfunction3UDP()
+    private static void PassOverFunction3UDP()
     {
-        Debug.Log("Dumbass Function Started");
         clientSoc.BeginReceive(buffer, 0, buffer.Length, 0, new AsyncCallback(ReceiveUDPCallback), clientSoc);
     }
 

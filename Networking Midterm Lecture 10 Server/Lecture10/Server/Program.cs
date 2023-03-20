@@ -82,6 +82,16 @@ namespace Server
 
             String msg = Encoding.ASCII.GetString(data);
 
+            if (msg == "Client 1")
+            {
+                sendMsg = "Client 1 has Disconected";
+                DisconnectClient1TCP();
+            }
+            if (msg == "Client 2")
+            {
+                sendMsg = "Client 2 has Disconected";
+                DisconnectClient2TCP();
+            }
             //// Here is where you protect the resource (buffer)
             sendMsg += " " + msg;
             sendMessages = true;
@@ -143,6 +153,20 @@ namespace Server
                     Thread.Sleep(100);
                 }
             }
+        }
+
+        private static void DisconnectClient1TCP()
+        {
+            clientSockets[0].Disconnect(false);
+            clientSockets[0].Shutdown(SocketShutdown.Both);
+            clientSockets[0].Close();
+        }
+
+        private static void DisconnectClient2TCP()
+        {
+            clientSockets[0].Disconnect(false);
+            clientSockets[1].Shutdown(SocketShutdown.Both);
+            clientSockets[1].Close();
         }
     }
 }
